@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/address.dart';
 import 'package:food_app/forgotpass.dart';
 import 'package:food_app/signin.dart';
 import 'package:food_app/verify.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Forgotpass(),
+      home:Address(),
     );
   }
 }

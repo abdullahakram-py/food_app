@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/verify.dart';
 
 class Forgotpass extends StatefulWidget {
   const new({super.key});
@@ -8,13 +9,16 @@ class Forgotpass extends StatefulWidget {
 }
 
 class _ForgotpassState extends State<Forgotpass> {
+  TextEditingController mail = TextEditingController();
+  bool ismail = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 243, 237, 224),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
+          spacing: 10,
           children: [
             Center(
               child: Container(
@@ -31,23 +35,71 @@ class _ForgotpassState extends State<Forgotpass> {
               Text(
                 textAlign: TextAlign.justify,
                 'We will mail you a reset link ',style: TextStyle(fontSize: 16,color:Color.fromARGB(255, 140, 103, 73) ,),),
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Email",hintStyle: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
+                SizedBox(height: 20,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: mail,
+                    onChanged: (value) {
+                      if(mail.text.isEmpty){
+                        setState(() {
+                          ismail = true;
+                        });
+                      }
+                      else{
+                        setState(() {
+                          ismail = false;
+                        });
+                      }
+                    },
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Email",hintStyle: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73)),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      borderRadius: BorderRadius.circular(20),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color:Color.fromARGB(255, 232, 73, 29),
+                        ),
+                        borderRadius: BorderRadius.circular(20)
+                      )
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color:Color.fromARGB(255, 232, 73, 29),
-                      ),
-                      borderRadius: BorderRadius.circular(20)
-                    )
                   ),
+                ), ismail == true?
+                Row(
+                  children: [
+                    Text(
+                              
+                              'Enter your mail!',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 232, 73, 29),),),
+                  ],
+                ) : Container(),
+                GestureDetector(
+                  onTap: () {
+                    if(mail.text.isEmpty){
+                      setState(() {
+                        ismail = true;
+                      });
+                    }
+                    else{
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Verify()));
+                    }
+                  },
+                  child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                  height: 45,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color:Color.fromARGB(255, 232, 73, 29)
+                  ),
+                  child: Center(child: Text('Send Reset link',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold))),
+                                ),
+                              ),
                 )
           ],
         ),
