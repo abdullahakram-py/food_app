@@ -23,6 +23,9 @@ class _CreateaccState extends State<Createacc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 243, 237, 224),
+      ),
       backgroundColor: Color.fromARGB(255, 243, 237, 224),
       body: Column(
         children: [
