@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/cart.dart';
 import 'package:food_app/menu.dart';
 
 class Home extends StatefulWidget {
@@ -368,7 +369,11 @@ class _HomeState extends State<Home> {
               Column(
                 children: [
                   
-                  Icon(Icons.shopping_cart_outlined,color: Color.fromARGB(255, 140, 103, 73),),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                    },
+                    child: Icon(Icons.shopping_cart_outlined,color: Color.fromARGB(255, 140, 103, 73),)),
                   Text('cart',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
                 ],
               ),

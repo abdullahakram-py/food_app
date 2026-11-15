@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/cart.dart';
+import 'package:food_app/pizzaorder.dart';
 
 class Menu extends StatefulWidget {
   const new({super.key});
@@ -251,14 +253,19 @@ class _MenuState extends State<Menu> {
                           Positioned(
                             right: 10,
                             bottom: 30,
-                            child:Container(
-                              height: 27,
-                              width: 27,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color.fromARGB(255, 140, 103, 73),
+                            child:GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Pizzaorder()));
+                              },
+                              child: Container(
+                                height: 27,
+                                width: 27,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color.fromARGB(255, 140, 103, 73),
+                                ),
+                                child: Center(child: Icon(Icons.add,color: Colors.white,)),
                               ),
-                              child: Center(child: Icon(Icons.add,color: Colors.white,)),
                             ))
                     ]
                   ),
@@ -298,7 +305,11 @@ class _MenuState extends State<Menu> {
               Column(
                 children: [
                   
-                  Icon(Icons.shopping_cart_outlined,color: Color.fromARGB(255, 140, 103, 73),),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                    },
+                    child: Icon(Icons.shopping_cart_outlined,color: Color.fromARGB(255, 140, 103, 73),)),
                   Text('cart',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
                 ],
               ),
