@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/menu.dart';
 
 class Pizzaorder extends StatefulWidget {
   const new({super.key});
@@ -9,15 +10,17 @@ class Pizzaorder extends StatefulWidget {
 
 class _PizzaorderState extends State<Pizzaorder> {
     bool all=false, classic=false, special=false, premium=false;
+    bool size1=false, size2=false, size3=false;
+    bool crust1=false, crust2=false, crust3=false;
+    bool topin1=false, topin2=false, topin3=false;
+
   @override
   Widget build(BuildContext context) {
         return Scaffold(
       backgroundColor: Color.fromARGB(255, 243, 237, 224),
-      appBar: AppBar(
-      backgroundColor: Color.fromARGB(255, 243, 237, 224),
-      ),
+      
       body: Stack(
-        
+        clipBehavior: Clip.none,
         children:[
           Container(
             color: Colors.white,
@@ -276,7 +279,417 @@ class _PizzaorderState extends State<Pizzaorder> {
             
               ]
           ),
-        ),]
+          
+        ),
+        Positioned(child: Container(
+          
+          color:Color.fromARGB(83, 243, 237, 224),
+        ),
+        ),
+        Positioned(
+          right: 0,
+          left: 0,
+          bottom: 80,
+          top: 160,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+            height: 100,
+            width: 80,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 5
+                )
+              ],
+              color: const Color.fromARGB(255, 245, 241, 241),
+              borderRadius: BorderRadius.circular(25),
+            
+            ),
+                    ),
+          )),
+          Positioned(
+            left: 0,
+            right: 0,
+            top:30,
+            child: Image.network("https://png.pngtree.com/png-vector/20250529/ourmid/pngtree-pizza-isolated-on-white-background-png-image_16401329.png",height: 230,width: 230,)
+            ),
+            Positioned(
+              left: 20,
+              top: 50,
+              child:GestureDetector(
+                onTap: () {
+                  Navigator.pop(context,MaterialPageRoute(builder: (context)=>Menu()));
+                },
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 232, 73, 29)
+                  ),
+                  child: Center(
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 25,
+                      ),
+                  ),
+                ),
+              ) ,
+              ),
+              Positioned(
+                left: 50,
+                top: 250,
+                bottom: 100,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Fajeta',style: TextStyle(fontSize: 28,color: Colors.black,fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                            
+                            'Spicy salami  chili honey  mozarella ',style: TextStyle(fontSize: 14,color:Color.fromARGB(255, 140, 103, 73) ,),),
+                            SizedBox(height: 10,),
+                            Text(
+                            
+                            'SIZE ',style: TextStyle(fontSize: 14,color:Color.fromARGB(255, 140, 103, 73) ,),),
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    size1=true;
+                                      size2=false;
+                                      size3=false;
+                                      setState(() {
+                                        
+                                      });
+                                  },
+                                  child: Container(
+                                    height: 25,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: size1==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                        
+                                        color:size1==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' 10" ',style: TextStyle(
+                                                                    fontSize: 14,
+                                                                    color:size1==true?Colors.white:
+                                                                    Color.fromARGB(255, 140, 103, 73) ,),),
+                                    ),
+                                  ),
+                                ),SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+                                      size1=false;
+                                      size2=true;
+                                      size3=false;
+                                      setState(() {
+                                        
+                                      });
+                                    },
+                                    child: Container(
+                                    height: 25,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: size2==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+
+                                        color: size2==true?Color.fromARGB(255, 232, 73, 29):
+                                          Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' 12" ',style: TextStyle(fontSize: 14,color:size2==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73) ,),),
+                                    ),
+                                                                    ),
+                                  ),SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+                                      size1=false;
+                                      size2=false;
+                                      size3=true;
+                                      setState(() {
+                                        
+                                      });
+                                    },
+                                    child: Container(
+                                    height: 25,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: size3==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                        color:size3==true?Color.fromARGB(255, 232, 73, 29):
+                                          Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' 14" ',style: TextStyle(
+                                                                    fontSize: 14,
+                                                                    color:size3==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73) ,),),
+                                    ),
+                                                                    ),
+                                  ),
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                                Text(
+                            
+                            'CRUST ',style: TextStyle(fontSize: 14,color:Color.fromARGB(255, 140, 103, 73) ,),),
+                            SizedBox(height: 5,),
+                                Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    crust1=true;
+                                    crust2=false;
+                                    crust3=false;
+                                    setState(() {
+                                      
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: crust1==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                        color: crust1==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' Thin ',style: TextStyle(
+                                                                    fontSize: 14,
+                                                                    color:crust1==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73)
+                                                                    ,),),
+                                    ),
+                                  ),
+                                ),SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+                                    crust1=false;
+                                    crust2=true;
+                                    crust3=false;
+                                    setState(() {
+                                      
+                                    });
+                                    },
+                                    child: Container(
+                                    height: 30,
+                                    width: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: crust2==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                          
+                                        color:crust2==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' Classic ',style: TextStyle(
+                                                                    fontSize: 14,
+                                                                    color:crust2==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73)
+                                                                    ,),),
+                                    ),
+                                                                    ),
+                                  ),SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+                                      crust1=false;
+                                    crust2=false;
+                                    crust3=true;
+                                    setState(() {
+                                      
+                                    });
+                                    },
+                                    child: Container(
+                                    height: 30,
+                                    width: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: crust3==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                        color: crust3==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' Stuffed ',style: TextStyle(
+                                                                    fontSize: 14,
+                                                                    color:crust3==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73)
+                                                                      ,),),
+                                    ),
+                                                                    ),
+                                  ),
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                                Text(
+                            
+                            'EXTRA TOPPINGS ',style: TextStyle(fontSize: 14,color:Color.fromARGB(255, 140, 103, 73) ,),),
+                            SizedBox(height: 5,),
+                                Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    topin1=true;
+                                    topin2=false;
+                                    topin3=false;
+                                    setState(() {
+                                      
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: topin1==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+
+                                        color: topin1==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' Chilli Honey ',style: TextStyle(
+                                                                    fontSize: 12,
+                                                                    color:topin1==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73)
+                                                                      ,),),
+                                    ),
+                                  ),
+                                ),SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+                                      topin1=false;
+                                    topin2=true;
+                                    topin3=false;
+                                    setState(() {
+                                      
+                                    });
+                                    },
+                                    child: Container(
+                                    height: 30,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                        color: topin2==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                        color: topin2==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' Basil ',style: TextStyle(
+                                                                    fontSize: 12,
+                                                                    color:topin2==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73) ,),),
+                                    ),
+                                                                    ),
+                                  ),SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+                                      topin1=false;
+                                    topin2=false;
+                                    topin3=true;
+                                    setState(() {
+                                      
+                                    });
+                                    },
+                                    child: Container(
+                                    height: 30,
+                                    width: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: topin3==true?
+                                      Color.fromARGB(255, 232, 73, 29):Colors.transparent,
+                                      border: Border.all(
+                                        color: topin3==true?Color.fromARGB(255, 232, 73, 29):
+                                        Color.fromARGB(255, 140, 103, 73),
+                                      )
+                                    ),
+                                    child:Center(
+                                      child: Text(
+                                                                  
+                                                                  ' Extra Cheese ',
+                                                                  style: TextStyle(
+                                                                    fontSize: 12,
+                                                                    color:topin3==true?Colors.white:
+                                                                  Color.fromARGB(255, 140, 103, 73)
+                                                                    ,),),
+                                    ),
+                                                                    ),
+                                  ),
+                              ],
+                            ),
+                            Row(
+                              
+                              children: [
+                                Text('\$15.50',style: TextStyle(fontSize: 18,color:const Color.fromARGB(255, 236, 97, 97), fontWeight: FontWeight.bold),), 
+                                SizedBox(width: 250,),
+                                Container(
+                                                  height: 40,
+                                                  width: 130,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(15),
+                                                    color:Color.fromARGB(255, 232, 73, 29)
+                                                  ),
+                                                  child: Center(child: Text('Add to Cart',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold))),
+                                                ),
+                              ],
+                            ),
+
+                          
+                        
+                  ],
+                ),
+                ),
+                
+            
+        ]
       ),
       bottomNavigationBar: Container(
         height: 61,
@@ -320,7 +733,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                 children: [
                   Icon(Icons.account_circle_outlined,color: Color.fromARGB(255, 140, 103, 73),),
                   
-                  Text('Orders',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
+                  Text('Profile',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
                 ],
               ),
               
