@@ -13,7 +13,7 @@ class _PizzaorderState extends State<Pizzaorder> {
     bool size1=false, size2=false, size3=false;
     bool crust1=false, crust2=false, crust3=false;
     bool topin1=false, topin2=false, topin3=false;
-
+    
   @override
   Widget build(BuildContext context) {
         return Scaffold(
@@ -346,7 +346,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Fajeta',style: TextStyle(fontSize: 28,color: Colors.black,fontWeight: FontWeight.bold),
+                    Text('Fajita',style: TextStyle(fontSize: 28,color: Colors.black,fontWeight: FontWeight.bold),
                     ),
                     Text(
                             
@@ -384,7 +384,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                                       child: Text(
                                                                   
                                                                   ' 10" ',style: TextStyle(
-                                                                    fontSize: 14,
+                                                                    fontSize: 12,
                                                                     color:size1==true?Colors.white:
                                                                     Color.fromARGB(255, 140, 103, 73) ,),),
                                     ),
@@ -415,7 +415,9 @@ class _PizzaorderState extends State<Pizzaorder> {
                                     child:Center(
                                       child: Text(
                                                                   
-                                                                  ' 12" ',style: TextStyle(fontSize: 14,color:size2==true?Colors.white:
+                                                                  ' 12" ',style: TextStyle(
+                                                                    fontSize: 12,
+                                                                    color:size2==true?Colors.white:
                                                                   Color.fromARGB(255, 140, 103, 73) ,),),
                                     ),
                                                                     ),
@@ -445,7 +447,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                                       child: Text(
                                                                   
                                                                   ' 14" ',style: TextStyle(
-                                                                    fontSize: 14,
+                                                                    fontSize: 12,
                                                                     color:size3==true?Colors.white:
                                                                   Color.fromARGB(255, 140, 103, 73) ,),),
                                     ),
@@ -485,7 +487,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                                       child: Text(
                                                                   
                                                                   ' Thin ',style: TextStyle(
-                                                                    fontSize: 14,
+                                                                    fontSize: 12,
                                                                     color:crust1==true?Colors.white:
                                                                   Color.fromARGB(255, 140, 103, 73)
                                                                     ,),),
@@ -518,7 +520,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                                       child: Text(
                                                                   
                                                                   ' Classic ',style: TextStyle(
-                                                                    fontSize: 14,
+                                                                    fontSize: 12,
                                                                     color:crust2==true?Colors.white:
                                                                   Color.fromARGB(255, 140, 103, 73)
                                                                     ,),),
@@ -550,7 +552,7 @@ class _PizzaorderState extends State<Pizzaorder> {
                                       child: Text(
                                                                   
                                                                   ' Stuffed ',style: TextStyle(
-                                                                    fontSize: 14,
+                                                                    fontSize: 12,
                                                                     color:crust3==true?Colors.white:
                                                                   Color.fromARGB(255, 140, 103, 73)
                                                                       ,),),
