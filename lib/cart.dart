@@ -232,7 +232,7 @@ class _CartState extends State<Cart> {
                 children: [
                   Icon(Icons.account_circle_outlined,color: Color.fromARGB(255, 140, 103, 73),),
                   
-                  Text('Orders',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
+                  Text('Profile',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
                 ],
               ),
               

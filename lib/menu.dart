@@ -12,6 +12,7 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   bool all=false, classic=false, special=false, premium=false;
+  bool menu=false, home=false, cart=false, orders=false, profile=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,22 +174,27 @@ class _MenuState extends State<Menu> {
                 children: [
                   Stack(
                     clipBehavior: Clip.none,
-                    children:[ Container(
-                      padding: EdgeInsets.all(8),
-                      height: 160,
-                      width: 190,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color:Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 236, 97, 97),
-                            
-                          )
-                        ]
-                        
+                    children:[ Material(
+                      elevation: 7.0,
+                      borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 236, 97, 97),
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        height: 160,
+                        width: 190,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color:Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color.fromARGB(255, 236, 97, 97),
+                              
+                            )
+                          ]
+                          
+                        ),
+                      
                       ),
-                    
                     ),
                     Positioned(
                       top: -50,
@@ -221,21 +227,26 @@ class _MenuState extends State<Menu> {
                   Stack(
                     
                     clipBehavior: Clip.none,
-                    children:[ Container(
-                      padding: EdgeInsets.all(8),
-                      height: 160,
-                      width: 190,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color:Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 236, 97, 97),
-                          )
-                        ]
-                        
+                    children:[ Material(
+                      elevation: 7.0,
+                      borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 236, 97, 97),
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        height: 160,
+                        width: 190,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color:Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color.fromARGB(255, 236, 97, 97),
+                            )
+                          ]
+                          
+                        ),
+                      
                       ),
-                    
                     ),
                     Positioned(
                       top: -50,
@@ -245,7 +256,7 @@ class _MenuState extends State<Menu> {
                       Positioned(
                         bottom: 50,
                         left: 10,
-                        child:Text('Fajeta',style: TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.bold),), ),
+                        child:Text('Fajita',style: TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.bold),), ),
                         Positioned(
                           left: 10,
                           
@@ -295,16 +306,45 @@ class _MenuState extends State<Menu> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pop(context,MaterialPageRoute(builder: (context)=>Home()));
+                      menu=false;
+                      home=true;
+                        cart=false;
+                        orders=false;
+                          profile=false;
+                          setState(() {
+                            Navigator.pop(context,MaterialPageRoute(builder: (context)=>Home()));
+                          });
                     },
-                    child: Icon(Icons.home_outlined,color:const Color.fromARGB(255, 236, 97, 97) ,)),
-                  Text('Home',style: TextStyle(fontSize: 12,color:const Color.fromARGB(255, 236, 97, 97),)),
+                    child: Icon(
+                      Icons.home_outlined,
+                        color:home==true?
+                      const Color.fromARGB(255, 236, 97, 97):Color.fromARGB(255, 140, 103, 73) ,)),
+                  Text(
+                    'Home',style: TextStyle(fontSize: 12, color:home==true?
+                      const Color.fromARGB(255, 236, 97, 97):Color.fromARGB(255, 140, 103, 73),)),
                 ],
               ),
               Column(
                 children: [
-                  Icon(Icons.widgets_outlined,color:Color.fromARGB(255, 140, 103, 73),),
-                  Text('Menu',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
+                  GestureDetector(
+                    onTap: () {
+                      menu=true;
+                      home=false;
+                        cart=false;
+                        orders=false;
+                          profile=false;
+                          setState(() {
+                            
+                          });
+                    },
+                    child: Icon(Icons.widgets_outlined,
+                    color:menu==true?
+                      const Color.fromARGB(255, 236, 97, 97):Color.fromARGB(255, 140, 103, 73) 
+                    ,)),
+                  Text('Menu',style: TextStyle(
+                    fontSize: 12,
+                    color:home==true?
+                      const Color.fromARGB(255, 236, 97, 97):Color.fromARGB(255, 140, 103, 73) ,)),
                 ],
               ),
               Column(
@@ -329,7 +369,7 @@ class _MenuState extends State<Menu> {
                 children: [
                   Icon(Icons.account_circle_outlined,color: Color.fromARGB(255, 140, 103, 73),),
                   
-                  Text('Orders',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
+                  Text('Profile',style: TextStyle(fontSize: 12,color:Color.fromARGB(255, 140, 103, 73),)),
                 ],
               ),
               

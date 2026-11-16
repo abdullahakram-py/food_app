@@ -179,22 +179,27 @@ class _PizzaorderState extends State<Pizzaorder> {
                   children: [
                     Stack(
                       clipBehavior: Clip.none,
-                      children:[ Container(
-                        padding: EdgeInsets.all(8),
-                        height: 160,
-                        width: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color:Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color.fromARGB(255, 236, 97, 97),
-                              
-                            )
-                          ]
-                          
+                      children:[ Material(
+                        elevation: 7.0,
+                      borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 236, 97, 97),
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          height: 160,
+                          width: 190,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color:Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color.fromARGB(255, 236, 97, 97),
+                                
+                              )
+                            ]
+                            
+                          ),
+                        
                         ),
-                      
                       ),
                       Positioned(
                         top: -50,
@@ -227,21 +232,26 @@ class _PizzaorderState extends State<Pizzaorder> {
                     Stack(
                       
                       clipBehavior: Clip.none,
-                      children:[ Container(
-                        padding: EdgeInsets.all(8),
-                        height: 160,
-                        width: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color:Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color.fromARGB(255, 236, 97, 97),
-                            )
-                          ]
-                          
+                      children:[ Material(
+                        elevation: 7.0,
+                      borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 236, 97, 97),
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          height: 160,
+                          width: 190,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color:Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color.fromARGB(255, 236, 97, 97),
+                              )
+                            ]
+                            
+                          ),
+                        
                         ),
-                      
                       ),
                       Positioned(
                         top: -50,
