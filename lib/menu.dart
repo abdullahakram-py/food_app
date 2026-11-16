@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/cart.dart';
+import 'package:food_app/home.dart';
 import 'package:food_app/pizzaorder.dart';
 
 class Menu extends StatefulWidget {
@@ -292,7 +293,11 @@ class _MenuState extends State<Menu> {
             children: [
               Column(
                 children: [
-                  Icon(Icons.home_outlined,color:const Color.fromARGB(255, 236, 97, 97) ,),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context,MaterialPageRoute(builder: (context)=>Home()));
+                    },
+                    child: Icon(Icons.home_outlined,color:const Color.fromARGB(255, 236, 97, 97) ,)),
                   Text('Home',style: TextStyle(fontSize: 12,color:const Color.fromARGB(255, 236, 97, 97),)),
                 ],
               ),
