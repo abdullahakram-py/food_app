@@ -11,12 +11,13 @@ class _BillState extends State<Bill> {
   TextEditingController name =TextEditingController();
   TextEditingController  Quantity = TextEditingController();
     double price=300;
-    
     double subtotal=0;
     double tax=0;
     double total=0;
     bool isshow = false;
-    
+    bool isChecked = false;
+    double  discount=  0;
+
     
     
   @override
@@ -103,24 +104,52 @@ class _BillState extends State<Bill> {
                       
                       ),
                     ),
+                    
+            
                 Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                                value: isChecked,
+                                activeColor: Colors.indigo,
+                                checkColor: Colors.white,
+                                onChanged: (bool? newValue) {
+                                  setState(() {
+                                    isChecked = newValue ?? false;
+                                  });
+                                },
+                              ),
+                              Text('Friday sale',style: TextStyle(fontSize: 12,color: Colors.black),)
+                    ],
+                  ),
+                ),
+                    Padding(
                 padding: const EdgeInsets.all(8.0),
                 
                   child: GestureDetector(
                     onTap: () {
+                    
                       setState(() {
                         subtotal = double.parse(Quantity.text)*price;
                         tax = subtotal*0.05;
-                        total = subtotal+tax;
-
-                        
-                        
-                        
-                      isshow= true;
+                          isshow= true;
+                       
                       });
+                      if(isChecked)
+                      {
+                        setState(() {
+                          discount=  subtotal*0.05;
+                           total = subtotal+tax-discount; 
                       
-                        
-                    
+                        });
+                      }
+                      else{
+                         setState(() {
+                          discount=  0;
+                           total = subtotal+tax-discount; 
+                         });
+                      }
                     },
                     child: Container(
                             height: 45,
@@ -134,7 +163,6 @@ class _BillState extends State<Bill> {
                   ),
                 ),
               
-                
             
             isshow == true
                 ? Padding(
@@ -145,6 +173,7 @@ class _BillState extends State<Bill> {
                           Text("Coffee: " + name.text),
                           Text("Price: \$" + price.toString()),
                           Text("Quantity: " + Quantity.text),
+                          Text("Discount: " + discount.toString()),
                           Text("SubTotal: \$" + subtotal.toString()),
                           Text("tax: \$" + tax.toString()),
                           Text("Total: \$" + total.toString()),
