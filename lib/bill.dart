@@ -10,13 +10,15 @@ class Bill extends StatefulWidget {
 class _BillState extends State<Bill> {
   TextEditingController name =TextEditingController();
   TextEditingController  Quantity = TextEditingController();
-  
-  double amount=0;
-  bool isshow = false;
-  String coffee = '';
-  int qty = 0;
-  double price = 0;
-
+    double price=300;
+    
+    double subtotal=0;
+    double tax=0;
+    double total=0;
+    bool isshow = false;
+    
+    
+    
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +98,7 @@ class _BillState extends State<Bill> {
                               ),
                             ),
                           ),
-                      
+                          
                         ],
                       
                       ),
@@ -106,22 +108,19 @@ class _BillState extends State<Bill> {
                 
                   child: GestureDetector(
                     onTap: () {
-                      if (coffee == 'arabica medium') {
-                      price = 300;
-                    } else if (coffee == 'arabica light') {
-                      price = 350;
-                    } else if (coffee == 'robusta') {
-                      price = 250;
-                    } else if (coffee == 'arabica dark') {
-                      price = 350;
-                    } else {
-                      price = 0;
-                    }
+                      setState(() {
+                        subtotal = double.parse(Quantity.text)*price;
+                        tax = subtotal*0.05;
+                        total = subtotal+tax;
 
-                    setState(() {
-                      amount = price * qty;
-                      isshow = amount > 0;
-                    });
+                        
+                        
+                        
+                      isshow= true;
+                      });
+                      
+                        
+                    
                     },
                     child: Container(
                             height: 45,
@@ -135,7 +134,7 @@ class _BillState extends State<Bill> {
                   ),
                 ),
               
-
+                
             
             isshow == true
                 ? Padding(
@@ -143,11 +142,13 @@ class _BillState extends State<Bill> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                          Text("Coffee: " + coffee),
+                          Text("Coffee: " + name.text),
                           Text("Price: \$" + price.toString()),
-                          Text("Quantity: " + qty.toString()),
-                          Text("Total: \$" + amount.toString(),
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("Quantity: " + Quantity.text),
+                          Text("SubTotal: \$" + subtotal.toString()),
+                          Text("tax: \$" + tax.toString()),
+                          Text("Total: \$" + total.toString()),
+                          
                       ],
                     ),
                   )

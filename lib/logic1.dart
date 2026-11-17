@@ -68,14 +68,14 @@ class _Logic1State extends State<Logic1> {
             ),
           ),
         ),
-       
+        
                     Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
                 onTap: () {
                   setState(() {
-                   fine=double.parse(leaves.text)*200;
-
+                    fine=double.parse(leaves.text)*200;
+                    
                   });
                     if(double.parse(leaves.text)<=1)
                     {
@@ -84,25 +84,25 @@ class _Logic1State extends State<Logic1> {
                         remarks  = "Excellent";
                         
                       });
-
+                        
                     }
                     else if(double.parse(leaves.text)>=1 && double.parse(leaves.text)<=4)
                     {
                       setState(() {
                         bonus = double.parse(salary.text)*0.1;
-                         remarks  = "Good";
+                          remarks  = "Good";
                       });
                       
                     }
                     else{
-                       setState(() {
+                        setState(() {
                         bonus = 0;
-                         remarks  = "Terminate";
+                          remarks  = "Terminate";
                       });
                       
                     }
-
-
+                      
+                    
                     setState(() {
                       fsalary =  double.parse(salary.text)+bonus-fine;
                       tax  =fsalary*0.05;
