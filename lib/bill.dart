@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Bill extends StatefulWidget {
-  const new({super.key});
+  const Bill({super.key});
 
   @override
   State<Bill> createState() => _BillState();
@@ -12,6 +12,11 @@ class _BillState extends State<Bill> {
   TextEditingController  Quantity = TextEditingController();
   
   double amount=0;
+  bool isshow = false;
+  String coffee = '';
+  int qty = 0;
+  double price = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,19 +101,58 @@ class _BillState extends State<Bill> {
                       
                       ),
                     ),
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Container(
-                        height: 45,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color:Colors.brown
-                        ),
-                        child: Center(child: Text('Genrate Bill',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold))),
-                      ),
-             ),
-           
+                Padding(
+                padding: const EdgeInsets.all(8.0),
+                
+                  child: GestureDetector(
+                    onTap: () {
+                      if (coffee == 'arabica medium') {
+                      price = 300;
+                    } else if (coffee == 'arabica light') {
+                      price = 350;
+                    } else if (coffee == 'robusta') {
+                      price = 250;
+                    } else if (coffee == 'arabica dark') {
+                      price = 350;
+                    } else {
+                      price = 0;
+                    }
+
+                    setState(() {
+                      amount = price * qty;
+                      isshow = amount > 0;
+                    });
+                    },
+                    child: Container(
+                            height: 45,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color:Colors.brown
+                            ),
+                            child: Center(child: Text('Genrate Bill',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold))),
+                          ),
+                  ),
+                ),
+              
+
+            
+            isshow == true
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                          Text("Coffee: " + coffee),
+                          Text("Price: \$" + price.toString()),
+                          Text("Quantity: " + qty.toString()),
+                          Text("Total: \$" + amount.toString(),
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                  )
+                : Container(),
+            
           ],
       ),
       
