@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/address.dart';
+import 'package:food_app/bill.dart';
+import 'package:food_app/bill1.dart';
 import 'package:food_app/forgotpass.dart';
 import 'package:food_app/home.dart';
 import 'package:food_app/logic1.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:Home(),
+      home:Bill(),
     );
   }
 }
