@@ -16,7 +16,9 @@ class _ElectricbillState extends State<Electricbill> {
   double total = 0;
   double tax = 0;
   bool   isshow = false;
-
+  
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
