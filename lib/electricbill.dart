@@ -22,7 +22,7 @@ class _ElectricbillState extends State<Electricbill> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 243, 237, 224),
+      
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
