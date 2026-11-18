@@ -32,20 +32,20 @@ bool isB = false;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-       title: Text("Quiz"),
+        title: Text("Quiz"),
       ),
-       body:Padding(
-         padding: const EdgeInsets.all(30),
-         child: Column(
+        body:Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
           spacing: 20,
           children: [
             Text(data[index]['ques']),
             GestureDetector(
               onTap: () {
                 setState(() {
-                   isA = true;
-                   
-                   
+                    isA = true;
+                    
+                    
                 });
               },
               child: Container(
