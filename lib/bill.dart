@@ -8,21 +8,19 @@ class Bill extends StatefulWidget {
 }
 
 class _BillState extends State<Bill> {
-  TextEditingController name =TextEditingController();
-  TextEditingController  Quantity = TextEditingController();
+    TextEditingController name =TextEditingController();
+    TextEditingController  Quantity = TextEditingController();
     double price=300;
     double subtotal=0;
     double tax=0;
     double total=0;
-    bool isshow = false;
+    bool   isshow = false;
     bool isChecked = false;
     double  discount=  0;
-
-    
-    
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        
       backgroundColor: Color.fromARGB(255, 243, 237, 224),
       body: Column(
         children: [
@@ -105,7 +103,7 @@ class _BillState extends State<Bill> {
                       ),
                     ),
                     
-            
+                      
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -134,21 +132,21 @@ class _BillState extends State<Bill> {
                         subtotal = double.parse(Quantity.text)*price;
                         tax = subtotal*0.05;
                           isshow= true;
-                       
+                        
                       });
                       if(isChecked)
                       {
                         setState(() {
                           discount=  subtotal*0.05;
-                           total = subtotal+tax-discount; 
+                            total = subtotal+tax-discount;
                       
                         });
                       }
                       else{
-                         setState(() {
+                          setState(() {
                           discount=  0;
-                           total = subtotal+tax-discount; 
-                         });
+                            total = subtotal+tax-discount;
+                          });
                       }
                     },
                     child: Container(
