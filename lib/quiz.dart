@@ -51,7 +51,7 @@ bool isB = false;
               child: Container(
                 height: 45,
                 width: MediaQuery.of(context).size.width,
-                decoration: 
+                decoration:
                 BoxDecoration(
                   color: const Color.fromARGB(255, 255, 214, 211),
                 ),
@@ -65,13 +65,13 @@ bool isB = false;
                         
                         isA == true? data[index]['ans'] == "A"? Icons.check : Icons.close
 
-                       : Icons.circle_outlined)
+                        : Icons.circle_outlined)
                     ],
                   ),
                 ),
               ),
             ),
-             Container(
+              Container(
               height: 45,
               width: MediaQuery.of(context).size.width,
               decoration: 
